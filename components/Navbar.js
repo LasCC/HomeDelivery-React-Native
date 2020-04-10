@@ -59,7 +59,6 @@ export default (props) => {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
   },

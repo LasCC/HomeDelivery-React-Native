@@ -53,8 +53,9 @@ export default (props) => {
     );
   }
   return (
-    <View>
-      <Spinner style={styles.spinner} />
+    <View style={styles.spinner}>
+      <Spinner />
+      <Text style={{marginLeft: 15}}>Chargement en cours ..</Text>
     </View>
   );
 };
@@ -74,5 +75,11 @@ const styles = StyleSheet.create({
   card: {
     marginBottom: 10,
     marginTop: 10,
+  },
+  spinner: {
+    height: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
