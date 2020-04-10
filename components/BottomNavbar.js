@@ -19,13 +19,19 @@ const useBottomNavigationState = (initialState = 0) => {
   return {selectedIndex, onSelect: setSelectedIndex};
 };
 
-export default (props) => {
+const BottomNavbar = ({navigation}) => {
   const bottomState = useBottomNavigationState();
 
   return (
     <BottomNavigation style={styles.bottomNavigation} {...bottomState}>
-      <BottomNavigationTab icon={HomeIcon} />
-      <BottomNavigationTab icon={CameraIcon} />
+      <BottomNavigationTab
+        icon={HomeIcon}
+        onPress={() => navigation.navigate('Homepage')}
+      />
+      <BottomNavigationTab
+        icon={CameraIcon}
+        onPress={() => this.props.navigation.navigate('QRcode')}
+      />
       <BottomNavigationTab icon={MapIcon} />
       <BottomNavigationTab icon={Settings} />
     </BottomNavigation>
@@ -42,3 +48,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default BottomNavbar;

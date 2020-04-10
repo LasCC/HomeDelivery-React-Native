@@ -16,7 +16,7 @@ const InfoIcon = (props) => <Icon {...props} name="info" />;
 
 const LogoutIcon = (props) => <Icon {...props} name="log-out" />;
 
-export default (props) => {
+const Navbar = ({navigation}) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
 
   const toggleMenu = () => {
@@ -66,3 +66,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
 });
+
+export default Navbar;

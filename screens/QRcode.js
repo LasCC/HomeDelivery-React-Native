@@ -27,17 +27,17 @@ export default (props) => {
   }, []);
   if (isReady && data) {
     return (
-      <>
+      <View style={styles.containerApp}>
         <Navbar />
         <React.Fragment>
           <SafeAreaView style={styles.container}>
             <ScrollView>
               <View style={styles.container}>
-                <Text category="h3">Annonces récentes</Text>
+                <Text category="h3">Générateur d'attestation</Text>
                 <Divider style={styles.divider} />
-                {data.map((command, index) => {
+                {data.map((command, i) => {
                   return (
-                    <Card style={styles.card} key={index} status="primary">
+                    <Card style={styles.card} key={i} status="primary">
                       <Text>{command.email}</Text>
                       <Divider style={styles.divider} />
                       <Text>{command.body}</Text>
@@ -49,7 +49,7 @@ export default (props) => {
           </SafeAreaView>
         </React.Fragment>
         <BottomNavbar />
-      </>
+      </View>
     );
   }
   return (
@@ -61,6 +61,10 @@ export default (props) => {
 };
 
 const styles = StyleSheet.create({
+  containerApp: {
+    marginTop: 55,
+    backgroundColor: 'white',
+  },
   container: {
     height: '83%',
     width: '100%',
