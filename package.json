@@ -1,0 +1,38 @@
+{
+  "name": "MyMobileApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx"
+  },
+  "dependencies": {
+    "@eva-design/eva": "2.0.0-alpha.1",
+    "@react-navigation/drawer": "^5.4.1",
+    "@ui-kitten/components": "5.0.0-alpha.1",
+    "@ui-kitten/eva-icons": "5.0.0-alpha.1",
+    "axios": "^0.19.2",
+    "react": "16.11.0",
+    "react-native": "0.62.1",
+    "react-native-svg": "9.13.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^1.0.0",
+    "@ui-kitten/metro-config": "4.4.1",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "prettier": "^2.0.2",
+    "react-test-renderer": "16.11.0"
+  },
+  "jest": {
+    "preset": "react-native",
+    "transformIgnorePatterns": []
+  }
+}
