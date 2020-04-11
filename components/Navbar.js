@@ -9,12 +9,15 @@ import {
   TopNavigation,
   TopNavigationAction,
 } from '@ui-kitten/components';
+import {ThemeContext} from './ThemeContext';
 
 const MenuIcon = (props) => <Icon {...props} name="more-vertical" />;
 
 const InfoIcon = (props) => <Icon {...props} name="info" />;
 
 const LogoutIcon = (props) => <Icon {...props} name="log-out" />;
+
+const MoonIcon = (props) => <Icon {...props} name="moon-outline" />;
 
 const Navbar = ({navigation}) => {
   const [menuVisible, setMenuVisible] = React.useState(false);
@@ -26,14 +29,20 @@ const Navbar = ({navigation}) => {
   const renderMenuAction = () => (
     <TopNavigationAction icon={MenuIcon} onPress={toggleMenu} />
   );
+  const themeContext = React.useContext(ThemeContext);
 
-  const renderOverflowMenuAction = () => (
+  const renderOverflowMenuAction = (props) => (
     <React.Fragment>
       <OverflowMenu
         anchor={renderMenuAction}
         visible={menuVisible}
         onBackdropPress={toggleMenu}>
         <MenuItem accessoryLeft={InfoIcon} title="About" />
+        <MenuItem
+          accessoryLeft={MoonIcon}
+          title="Dark mode"
+          onPress={themeContext.toggleTheme}
+        />
         <MenuItem accessoryLeft={LogoutIcon} title="Logout" />
       </OverflowMenu>
     </React.Fragment>

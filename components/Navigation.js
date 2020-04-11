@@ -21,15 +21,15 @@ const Settings = (props) => <Icon {...props} name="settings-2-outline" />;
 
 const {Navigator, Screen} = createBottomTabNavigator();
 
-const UsersScreen = () => (
+const UsersScreen = (props) => (
   <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text category="h1">USERS</Text>
+    <Text category="h1">MAP</Text>
   </Layout>
 );
 
 const OrdersScreen = () => (
   <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text category="h1">ORDERS</Text>
+    <Text category="h1">SETTINGS</Text>
   </Layout>
 );
 
