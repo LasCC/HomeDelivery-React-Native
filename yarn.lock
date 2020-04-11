@@ -1222,6 +1222,11 @@
   resolved "https://registry.yarnpkg.com/@ui-kitten/metro-config/-/metro-config-4.4.1.tgz#1a6838a18598a5c7be9dc04daf589f220116c7a1"
   integrity sha512-ozNZG6ukJ9XPFOqOIjHeoojbdGDqYIvLxYyox6d9LL2W/xtbTwqY/fsomsbwdRgcUHu145UCPn4FnUdHVAMXcQ==
 
+"@ui-kitten/moment@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@ui-kitten/moment/-/moment-4.4.1.tgz#1ed92c7ca79647193e7bdc85d92ec554a0d93bb8"
+  integrity sha512-sNrP0WM8ClIKmVwQIfcyzb8B0zekKMs4gSM/1yBVkT+fphPENzM/d2dEhVSZy0XIGE7UD/Ca/TEVhcQ2l0UMzw==
+
 abab@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.3.tgz#623e2075e02eb2d3f2475e49f99c91846467907a"
@@ -4634,6 +4639,11 @@ mkdirp@^0.5.1:
   integrity sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
   dependencies:
     minimist "^1.2.5"
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 ms@2.0.0:
   version "2.0.0"

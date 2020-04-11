@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, SafeAreaView, ScrollView} from 'react-native';
-import {Text, Divider, Card, Spinner} from '@ui-kitten/components';
+import {Text, Divider, Card, Spinner, Avatar} from '@ui-kitten/components';
 import Navbar from '../components/Navbar';
-import BottomNavbar from '../components/BottomNavbar';
 import axios from 'axios';
 
 const getResponse = async () => {
   try {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/comments',
-    );
+    const response = await axios.get('https://reqres.in/api/users');
     console.log(response.data);
     return response.data;
   } catch (error) {
@@ -17,7 +14,7 @@ const getResponse = async () => {
   }
 };
 
-export default (props) => {
+export const Homepage = ({navigation}) => {
   const [data, setdata] = useState(null);
   const [isReady, setisready] = useState(false);
   useEffect(() => {
@@ -33,14 +30,20 @@ export default (props) => {
           <SafeAreaView style={styles.container}>
             <ScrollView>
               <View style={styles.container}>
-                <Text category="h3">Annonces récentes</Text>
+                <Text category="h3">Annonces effectuées</Text>
                 <Divider style={styles.divider} />
-                {data.map((command, i) => {
+                {data.data.map((callapi, i) => {
                   return (
                     <Card style={styles.card} key={i} status="primary">
-                      <Text>{command.email}</Text>
+                      <View
+                        style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <Avatar source={{uri: callapi.avatar}} />
+                        <Text style={{marginLeft: 15}}>
+                          {callapi.first_name} {callapi.last_name}
+                        </Text>
+                      </View>
                       <Divider style={styles.divider} />
-                      <Text>{command.body}</Text>
+                      <Text>{callapi.email}</Text>
                     </Card>
                   );
                 })}
@@ -48,7 +51,6 @@ export default (props) => {
             </ScrollView>
           </SafeAreaView>
         </React.Fragment>
-        <BottomNavbar />
       </View>
     );
   }
@@ -62,10 +64,11 @@ export default (props) => {
 
 const styles = StyleSheet.create({
   containerApp: {
-    marginTop: 55,
+    paddingTop: 55,
+    backgroundColor: 'white',
   },
   container: {
-    height: '83%',
+    height: '100%',
     width: '100%',
     paddingLeft: 25,
     paddingRight: 25,
