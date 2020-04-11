@@ -4,11 +4,13 @@ import {
   Text,
   Divider,
   Input,
-  Calendar,
+  Datepicker,
   Button,
   Modal,
   Card,
   Icon,
+  Autocomplete,
+  AutocompleteItem,
 } from '@ui-kitten/components';
 import {MomentDateService} from '@ui-kitten/moment';
 import {captureRef} from 'react-native-view-shot';
@@ -20,6 +22,7 @@ moment.locale('fr');
 
 const DownloadIcon = (props) => <Icon {...props} name="download-outline" />;
 const imageIcon = (props) => <Icon {...props} name="image-outline" />;
+const CalendarIcon = (props) => <Icon {...props} name="calendar" />;
 
 const useCapture = () => {
   const captureViewRef = useRef();
@@ -40,15 +43,43 @@ const useCapture = () => {
   };
 };
 
+const motifs = [
+  {title: 'Travail'},
+  {title: 'Courses'},
+  {title: 'Sante'},
+  {title: 'Famille'},
+  {title: 'Sport'},
+  {title: 'Judiciaire'},
+  {title: 'Missions'},
+];
+
+const filter = (item, query) =>
+  item.title.toLowerCase().includes(query.toLowerCase());
+
 export default (props) => {
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
   const [naissance, setNaissance] = useState(moment().format('DD/MM/YYYY'));
   const [ville_naissance, setVille_naissance] = useState('');
   const [adresse, setAdresse] = useState('');
-  const [sortie, setSortie] = React.useState(moment().format('DD/MM/YYYY'));
+  const [sortie, setSortie] = React.useState();
   const [sortieHeure, setSortieHeure] = useState(moment().format('LT'));
-  const [motifs, setMofifs] = useState('');
+
+  const [value, setValue] = React.useState(null);
+  const [data, setData] = React.useState(motifs);
+
+  const onSelect = (index) => {
+    setValue(motifs[index].title);
+  };
+
+  const onChangeText = (query) => {
+    setValue(query);
+    setData(motifs.filter((item) => filter(item, query)));
+  };
+
+  const renderOption = (item, index) => (
+    <AutocompleteItem key={index} title={item.title} />
+  );
 
   const [visible, setVisible] = React.useState(false);
   const dateService = new MomentDateService();
@@ -59,7 +90,9 @@ export default (props) => {
     'DD/MM/YYYY',
   )} a ${moment().format(
     'LT',
-  )}; Nom: ${nom}; Prenom: ${prenom}; Naissance: ${naissance} a ${ville_naissance}; Adresse: ${adresse}; Sortie: ${sortie} a ${sortieHeure}; Motifs: ${motifs}`;
+  )}; Nom: ${nom}; Prenom: ${prenom}; Naissance: ${naissance} a ${ville_naissance}; Adresse: ${adresse}; Sortie: ${sortie.format(
+    'DD/MM/YYYY',
+  )} a ${sortieHeure}; Motifs: ${value}`;
 
   return (
     <View style={styles.containerApp} ref={captureViewRef}>
@@ -77,6 +110,7 @@ export default (props) => {
                 style={styles.inputs}
                 placeholder="COULON"
                 defaultValue={nom}
+                autoCorrect={false}
                 onChangeText={(nom) => setNom(nom)}
                 caption="Nom de famille"
               />
@@ -84,12 +118,14 @@ export default (props) => {
                 style={styles.inputs}
                 placeholder="Ludovic"
                 value={prenom}
+                autoCorrect={false}
                 onChangeText={(prenom) => setPrenom(prenom)}
                 caption="Prénom"
               />
               <Input
                 style={styles.inputs}
                 placeholder="11//04/2020"
+                autoCorrect={false}
                 value={naissance}
                 onChangeText={(naissance) => setNaissance(naissance)}
                 caption="Date de naissance"
@@ -98,6 +134,8 @@ export default (props) => {
                 style={styles.inputs}
                 placeholder="Paris 11e"
                 caption="Ville de naissance"
+                autoCorrect={false}
+                autoCompleteType="street-address"
                 value={ville_naissance}
                 onChangeText={(ville_naissance) =>
                   setVille_naissance(ville_naissance)
@@ -107,32 +145,42 @@ export default (props) => {
                 style={styles.inputs}
                 placeholder="12 rue des fleures"
                 caption="Adresse de votre domicile"
+                autoCorrect={false}
+                autoCompleteType="street-address"
                 value={adresse}
                 onChangeText={(adresse) => setAdresse(adresse)}
               />
-              <Text>Veuillez sélectionner la date de sortie</Text>
-              <Calendar
+
+              <Datepicker
                 dateService={dateService}
                 style={styles.inputs}
                 placeholder="Date de sortie"
-                value={sortie}
-                onSelect={(sortie) => setSortie(sortie.format('DD/MM/YYYY'))}
+                autoCorrect={false}
+                caption="Veuillez sélectionner la date de sortie"
+                accessoryRight={CalendarIcon}
+                date={sortie}
+                onSelect={(sortie) => setSortie(sortie)}
               />
+
               <Input
                 style={styles.inputs}
                 placeholder=""
                 caption="Heure de sortie"
                 keyboardType={'numeric'}
+                autoCorrect={false}
                 value={sortieHeure}
                 onChangeText={(sortieHeure) => setSortieHeure(sortieHeure)}
               />
-              <Input
+              <Autocomplete
                 style={styles.inputs}
-                placeholder="Motif de sortie"
-                caption="Sélectionnez un motif de sortie"
-                value={motifs}
-                onChangeText={(motifs) => setMofifs(motifs)}
-              />
+                autoCorrect={false}
+                placeholder="Courses, Sport, Famille..."
+                caption="Saisissez un motif de sortie"
+                value={value}
+                onSelect={onSelect}
+                onChangeText={onChangeText}>
+                {data.map(renderOption)}
+              </Autocomplete>
               <Button
                 onPress={() => setVisible(true)}
                 style={{marginTop: 15}}
