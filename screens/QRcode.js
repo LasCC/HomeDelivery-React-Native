@@ -11,6 +11,7 @@ import {
   Icon,
   Autocomplete,
   AutocompleteItem,
+  Layout,
 } from '@ui-kitten/components';
 import {MomentDateService} from '@ui-kitten/moment';
 import {captureRef} from 'react-native-view-shot';
@@ -90,12 +91,10 @@ export default (props) => {
     'DD/MM/YYYY',
   )} a ${moment().format(
     'LT',
-  )}; Nom: ${nom}; Prenom: ${prenom}; Naissance: ${naissance} a ${ville_naissance}; Adresse: ${adresse}; Sortie: ${sortie.format(
-    'DD/MM/YYYY',
-  )} a ${sortieHeure}; Motifs: ${value}`;
+  )}; Nom: ${nom}; Prenom: ${prenom}; Naissance: ${naissance} a ${ville_naissance}; Adresse: ${adresse}; Sortie: ${sortie} a ${sortieHeure}; Motifs: ${value}`;
 
   return (
-    <View style={styles.containerApp} ref={captureViewRef}>
+    <Layout style={styles.containerApp} ref={captureViewRef} level="1">
       <Navbar />
       <React.Fragment>
         <SafeAreaView style={styles.container}>
@@ -212,7 +211,7 @@ export default (props) => {
           </ScrollView>
         </SafeAreaView>
       </React.Fragment>
-    </View>
+    </Layout>
   );
 };
 
@@ -220,7 +219,6 @@ const styles = StyleSheet.create({
   containerApp: {
     paddingTop: 55,
     paddingBottom: 180,
-    backgroundColor: 'white',
   },
   container: {
     height: '100%',

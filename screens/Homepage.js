@@ -1,6 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, View, SafeAreaView, ScrollView} from 'react-native';
-import {Text, Divider, Card, Spinner, Avatar} from '@ui-kitten/components';
+import {
+  Text,
+  Divider,
+  Card,
+  Spinner,
+  Avatar,
+  Layout,
+} from '@ui-kitten/components';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 
@@ -24,34 +31,34 @@ export const Homepage = ({navigation}) => {
   }, []);
   if (isReady && data) {
     return (
-      <View style={styles.containerApp}>
+      <Layout style={styles.containerApp} level="1">
         <Navbar />
         <React.Fragment>
           <SafeAreaView style={styles.container}>
             <ScrollView>
-              <View style={styles.container}>
+              <Layout style={styles.container}>
                 <Text category="h3">Annonces effectuées</Text>
                 <Divider style={styles.divider} />
                 {data.data.map((callapi, i) => {
                   return (
                     <Card style={styles.card} key={i} status="primary">
-                      <View
+                      <Layout
                         style={{flexDirection: 'row', alignItems: 'center'}}>
                         <Avatar source={{uri: callapi.avatar}} />
                         <Text style={{marginLeft: 15}}>
                           {callapi.first_name} {callapi.last_name}
                         </Text>
-                      </View>
+                      </Layout>
                       <Divider style={styles.divider} />
                       <Text>{callapi.email}</Text>
                     </Card>
                   );
                 })}
-              </View>
+              </Layout>
             </ScrollView>
           </SafeAreaView>
         </React.Fragment>
-      </View>
+      </Layout>
     );
   }
   return (
@@ -65,7 +72,6 @@ export const Homepage = ({navigation}) => {
 const styles = StyleSheet.create({
   containerApp: {
     paddingTop: 55,
-    backgroundColor: 'white',
     paddingBottom: 180,
   },
   container: {

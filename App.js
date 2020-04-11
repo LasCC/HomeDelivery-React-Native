@@ -10,7 +10,7 @@ import {AppNavigator} from './components/Navigation';
 export default () => (
   <>
     <IconRegistry icons={EvaIconsPack} />
-    <ApplicationProvider {...eva} theme={eva.light}>
+    <ApplicationProvider {...eva} theme={eva.dark}>
       <AppNavigator />
     </ApplicationProvider>
   </>
