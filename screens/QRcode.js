@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {StyleSheet, View, SafeAreaView, ScrollView} from 'react-native';
 import {
   Text,
@@ -11,12 +11,34 @@ import {
   Icon,
 } from '@ui-kitten/components';
 import {MomentDateService} from '@ui-kitten/moment';
+import {captureRef} from 'react-native-view-shot';
+import QRCode from 'react-native-qrcode-svg';
 import Navbar from '../components/Navbar';
 import moment from 'moment';
 import 'moment/locale/fr';
 moment.locale('fr');
 
 const DownloadIcon = (props) => <Icon {...props} name="download-outline" />;
+const imageIcon = (props) => <Icon {...props} name="image-outline" />;
+
+const useCapture = () => {
+  const captureViewRef = useRef();
+
+  function onCapture() {
+    captureRef(captureViewRef, {
+      format: 'jpg',
+      quality: 0.9,
+    }).then(
+      (uri) => alert(uri),
+      (error) => alert('Oops, snapshot failed', error),
+    );
+  }
+
+  return {
+    captureViewRef,
+    onCapture,
+  };
+};
 
 export default (props) => {
   const [nom, setNom] = useState('');
@@ -31,6 +53,8 @@ export default (props) => {
   const [visible, setVisible] = React.useState(false);
   const dateService = new MomentDateService();
 
+  const {captureViewRef, onCapture} = useCapture();
+
   const qrcodevalue = `Cree le ${moment().format(
     'DD/MM/YYYY',
   )} a ${moment().format(
@@ -38,7 +62,7 @@ export default (props) => {
   )}; Nom: ${nom}; Prenom: ${prenom}; Naissance: ${naissance} a ${ville_naissance}; Adresse: ${adresse}; Sortie: ${sortie} a ${sortieHeure}; Motifs: ${motifs}`;
 
   return (
-    <View style={styles.containerApp}>
+    <View style={styles.containerApp} ref={captureViewRef}>
       <Navbar />
       <React.Fragment>
         <SafeAreaView style={styles.container}>
@@ -120,11 +144,20 @@ export default (props) => {
                 backdropStyle={styles.backdrop}
                 onBackdropPress={() => setVisible(false)}>
                 <Card disabled={true}>
-                  <Text style={{marginBottom: 15}}>
+                  <Text>
                     Avant de télécharger l'attestation veuillez à bien vérifier
                     les informations que vous avez renseigné.
                   </Text>
-                  <Button onPress={() => setVisible(false)}>DISMISS</Button>
+                  <Divider style={styles.divider} />
+                  <View style={styles.qrcode}>
+                    <QRCode value={qrcodevalue} size={250} />
+                  </View>
+                  <Button
+                    onPress={onCapture}
+                    style={{marginTop: 15}}
+                    accessoryRight={imageIcon}>
+                    Prendre une capture d'écran
+                  </Button>
                 </Card>
               </Modal>
             </View>
@@ -159,5 +192,10 @@ const styles = StyleSheet.create({
   },
   backdrop: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  qrcode: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
   containerApp: {
     paddingTop: 55,
     backgroundColor: 'white',
+    paddingBottom: 180,
   },
   container: {
     height: '100%',
