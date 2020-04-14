@@ -1,13 +1,26 @@
-# HomeDelivery-React-Native
+![N|Solid](https://i.imgur.com/GQDrHLL.png)]()
 
-Mobile app for the HomeDelivery project (WIP)
+# HomeDelivery
 
-## Some screens of the app :
+L'appliction officiel du projet HomeDelivery (React Native)
 
-[![N|Solid](https://i.imgur.com/FmhGnNs.png)]()
+- Listing d'annonces consultables.
+- Générateur d'attestation de déplacement provisoire en version QR code.
 
-[![N|Solid](https://i.imgur.com/wtqE5PV.png)]()
+# Fonctionnalités !
 
-[![N|Solid](https://i.imgur.com/v774VXS.png)]()
+- Une interface simple d'utilisation est dans l'air du temps !
+- Application à but non lucratif, aucune revente de données.
 
-[![N|Solid](https://i.imgur.com/ioIFRep.png)]()
+### Installation
+
+```
+yarn install && npx pod-install ios && yarn ios/android
+```
+
+### Quelques images de l'application (Light/Dark mode)
+
+[![N|Solid](https://i.imgur.com/C89v3Sy.jpg)](https://i.imgur.com/C89v3Sy.jpg)
+[![N|Solid](https://i.imgur.com/UjNT9ey.jpg)](https://i.imgur.com/UjNT9ey.jpg)
+
+@LasCC - Projet de groupe avec Riadh BOUCHAHOUA, Sebastien WIENNE, Réda MAIZATE
