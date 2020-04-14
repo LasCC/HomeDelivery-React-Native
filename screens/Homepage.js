@@ -37,7 +37,7 @@ export const Homepage = ({navigation}) => {
           <SafeAreaView style={styles.container}>
             <ScrollView>
               <Layout style={styles.container}>
-                <Text category="h3">Annonces effectuées</Text>
+                <Text category="h3">Annonces en ligne</Text>
                 <Divider style={styles.divider} />
                 {data.data.map((callapi, i) => {
                   return (
@@ -76,7 +76,6 @@ const styles = StyleSheet.create({
   },
   container: {
     height: '100%',
-    width: '100%',
     paddingLeft: 25,
     paddingRight: 25,
     marginTop: 15,

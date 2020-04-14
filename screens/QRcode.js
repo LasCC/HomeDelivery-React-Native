@@ -103,7 +103,8 @@ export default (props) => {
               <Text category="h3">Générateur d'attestation</Text>
               <Divider style={styles.divider} />
               <Text style={{marginBottom: 15}}>
-                Veuillez remplir le formulaire pour pouvoir génerer votre QRCode
+                Veuillez remplir le formulaire pour pouvoir génerer votre
+                attestation de déplacement provisoire
               </Text>
               <Input
                 style={styles.inputs}

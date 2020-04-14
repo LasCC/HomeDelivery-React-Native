@@ -15,7 +15,7 @@ const MenuIcon = (props) => <Icon {...props} name="more-vertical" />;
 
 const InfoIcon = (props) => <Icon {...props} name="info" />;
 
-const LogoutIcon = (props) => <Icon {...props} name="log-out" />;
+const SettingsIcon = (props) => <Icon {...props} name="settings-2-outline" />;
 
 const MoonIcon = (props) => <Icon {...props} name="moon-outline" />;
 
@@ -37,13 +37,17 @@ const Navbar = ({navigation}) => {
         anchor={renderMenuAction}
         visible={menuVisible}
         onBackdropPress={toggleMenu}>
-        <MenuItem accessoryLeft={InfoIcon} title="About" />
+        <MenuItem accessoryLeft={InfoIcon} title="A propos" />
         <MenuItem
           accessoryLeft={MoonIcon}
           title="Dark mode"
           onPress={themeContext.toggleTheme}
         />
-        <MenuItem accessoryLeft={LogoutIcon} title="Logout" />
+        <MenuItem
+          accessoryLeft={SettingsIcon}
+          title="Paramètres"
+          onPress={() => navigation.navigate('Settings')}
+        />
       </OverflowMenu>
     </React.Fragment>
   );

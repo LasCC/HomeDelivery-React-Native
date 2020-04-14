@@ -3,13 +3,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {
   BottomNavigation,
   BottomNavigationTab,
-  Layout,
-  Text,
   Icon,
 } from '@ui-kitten/components';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import QRCode from '../screens/QRcode';
 import {Homepage} from '../screens/Homepage';
+import {Settings} from '../screens/Settings';
+import {MapJS} from '../screens/Map';
 
 const HomeIcon = (props) => <Icon {...props} name="home-outline" />;
 
@@ -17,21 +17,9 @@ const CameraIcon = (props) => <Icon {...props} name="camera-outline" />;
 
 const MapIcon = (props) => <Icon {...props} name="map-outline" />;
 
-const Settings = (props) => <Icon {...props} name="settings-2-outline" />;
+const SettingsIcons = (props) => <Icon {...props} name="settings-2-outline" />;
 
 const {Navigator, Screen} = createBottomTabNavigator();
-
-const UsersScreen = (props) => (
-  <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text category="h1">MAP</Text>
-  </Layout>
-);
-
-const OrdersScreen = () => (
-  <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <Text category="h1">SETTINGS</Text>
-  </Layout>
-);
 
 const BottomTabBar = ({navigation, state}) => (
   <BottomNavigation
@@ -40,7 +28,7 @@ const BottomTabBar = ({navigation, state}) => (
     <BottomNavigationTab icon={HomeIcon} />
     <BottomNavigationTab icon={CameraIcon} />
     <BottomNavigationTab icon={MapIcon} />
-    <BottomNavigationTab icon={Settings} />
+    <BottomNavigationTab icon={SettingsIcons} />
   </BottomNavigation>
 );
 
@@ -51,8 +39,8 @@ const TabNavigator = () => (
     initialRouteName="Homepage">
     <Screen name="Homepage" component={Homepage} />
     <Screen name="QRCode" component={QRCode} />
-    <Screen name="Orders" component={OrdersScreen} />
-    <Screen name="UsersScreen" component={UsersScreen} />
+    <Screen name="Map" component={MapJS} />
+    <Screen name="Settings" component={Settings} />
   </Navigator>
 );
 

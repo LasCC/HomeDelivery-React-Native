@@ -1,0 +1,90 @@
+[
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Rambouillet",
+    "latitude": 48.6531167,
+    "longitude": 1.8284007,
+    "courses": "Riz, pommes, eau",
+    "demande": "Dans le lidl près de chez moi",
+    "prix": "12€"
+  },
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Villiers-le-Bel",
+    "latitude": 49.005243,
+    "longitude": 2.3849963,
+    "courses": "Riz long grain",
+    "demande": "J'aime pas la marque eco+",
+    "prix": "6€"
+  },
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Eaubonne",
+    "latitude": 48.9906696,
+    "longitude": 2.2794326,
+    "courses": "Pack d'eau",
+    "demande": "Cristalline, j'aime pas les autres marques",
+    "prix": "2€"
+  },
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Sevran",
+    "latitude": 48.9392142,
+    "longitude": 2.5257254,
+    "courses": "Pommes rouges",
+    "demande": "S'il vous plait, prennez la marque pink lady",
+    "prix": "3€"
+  },
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Rodon",
+    "latitude": 48.7459911,
+    "longitude": 1.9635542,
+    "courses": "Riz, pommes, eau",
+    "demande": "Dans le lidl près de chez moi",
+    "prix": "12€"
+  },
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Les Petits Houx",
+    "latitude": 48.7714831,
+    "longitude": 1.9137642,
+    "courses": "Riz, pommes, eau",
+    "demande": "Dans le lidl près de chez moi",
+    "prix": "12€"
+  },
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Pontchartrain",
+    "latitude": 48.8015181,
+    "longitude": 1.8950492,
+    "courses": "Riz, pommes, eau",
+    "demande": "Dans le lidl près de chez moi",
+    "prix": "12€"
+  },
+  {
+    "dialogTitle": "Lancer l'itineraire vers votre livraison",
+    "dialogMessage": "Vous pouvez choisir votre application favorite pour pouvoir effectuer votre trajet",
+    "cancelText": "Annuler",
+    "title": "Plaisir",
+    "latitude": 48.8129037,
+    "longitude": 1.9308229,
+    "courses": "Riz, pommes, eau",
+    "demande": "Dans le lidl près de chez moi",
+    "prix": "12€"
+  }
+]

@@ -24,6 +24,7 @@
     "react": "16.11.0",
     "react-native": "0.62.1",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-map-link": "^2.7.7",
     "react-native-qrcode-svg": "^6.0.3",
     "react-native-reanimated": "^1.8.0",
     "react-native-safe-area-context": "^0.7.3",
