@@ -20,7 +20,7 @@ yarn install && npx pod-install ios && yarn ios/android
 
 ### Quelques images de l'application (Light/Dark mode)
 
-[![N|Solid](https://i.imgur.com/C89v3Sy.jpg)](https://i.imgur.com/C89v3Sy.jpg)
-[![N|Solid](https://i.imgur.com/UjNT9ey.jpg)](https://i.imgur.com/UjNT9ey.jpg)
+[![N|Solid](https://i.imgur.com/oyMSDl3.png)](https://i.imgur.com/oyMSDl3.png)
+[![N|Solid](https://i.imgur.com/ie4gNeJ.png)](https://i.imgur.com/ie4gNeJ.png)
 
 @LasCC - Projet de groupe avec Riadh BOUCHAHOUA, Sebastien WIENNE, Réda MAIZATE
