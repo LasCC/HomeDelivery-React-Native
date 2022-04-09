@@ -20,7 +20,7 @@
     "@ui-kitten/eva-icons": "5.0.0-alpha.1",
     "@ui-kitten/moment": "^4.4.1",
     "axios": "^0.21.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "16.11.0",
     "react-native": "0.62.1",
     "react-native-gesture-handler": "^1.6.1",
